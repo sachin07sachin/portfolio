@@ -683,13 +683,32 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: "AI Content Generator",
+      title: "LEGO Data Analysis",
       description:
-        "An AI-powered content generation tool using GPT-4 API with custom prompt engineering and content optimization.",
-      tags: ["React", "TypeScript", "OpenAI", "Tailwind"],
+        `This project analyzes LEGO-related data using a Jupyter Notebook to explore trends and patterns across different LEGO sets and themes.
+        The notebook performs exploratory data analysis to understand: 
+        • Distribution of LEGO sets across themes and years
+        • Trends in LEGO releases over time
+        • Insights into LEGO themes, parts, and categories`,
+      tags: ["Pandas ", "Matplotlib "],
       image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-      github: "https://github.com",
+        "https://revival-strapi.s3.eu-west-2.amazonaws.com/Bricks_LEGO_Trivia_1_fe19a94b8b.png",
+      github: "https://github.com/sachin07sachin/Lego_analysis",
+      demo: "",
+    },
+    {
+      id: 3,
+      title: "Google Trends Search Interest Analysis",
+      description:
+        `This project analyzes Google Trends search interest data using a Jupyter Notebook to understand how public interest in specific topics changes over time.
+        The notebook performs exploratory data analysis and visualization to uncover:
+        • Trends in search popularity over time
+        • Comparisons between different search terms
+        • Seasonal or long-term patterns in user interest`,
+      tags: ["Pandas ", "Matplotlib "],
+      image:
+        "https://www.aimtechnologies.co/wp-content/uploads/2023/12/Media-Data-Analysis.jpeg",
+      github: "https://github.com/sachin07sachin/google-trends-data-visualization",
       demo: "",
     },
   ];
