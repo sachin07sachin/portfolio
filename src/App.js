@@ -392,7 +392,16 @@ const App = () => {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p>&copy; 2025 Sachin. All rights reserved.</p>
+          {(() => {
+            const startYear = 2024;
+            const currentYear = new Date().getFullYear();
+            const yearDisplay =
+              startYear === currentYear
+                ? startYear
+                : `${startYear}–${currentYear}`;
+
+            return <p>© {yearDisplay} Sachin Shankuri.</p>;
+          })()}
           <div className="social-links">
             <motion.a
               href="https://github.com/sachin07sachin"
@@ -684,8 +693,7 @@ const ProjectsSection = () => {
     {
       id: 2,
       title: "LEGO Data Analysis",
-      description:
-        `This project analyzes LEGO-related data using a Jupyter Notebook to explore trends and patterns across different LEGO sets and themes.
+      description: `This project analyzes LEGO-related data using a Jupyter Notebook to explore trends and patterns across different LEGO sets and themes.
         The notebook performs exploratory data analysis to understand: 
         • Distribution of LEGO sets across themes and years
         • Trends in LEGO releases over time
@@ -699,8 +707,7 @@ const ProjectsSection = () => {
     {
       id: 3,
       title: "Google Trends Search Interest Analysis",
-      description:
-        `This project analyzes Google Trends search interest data using a Jupyter Notebook to understand how public interest in specific topics changes over time.
+      description: `This project analyzes Google Trends search interest data using a Jupyter Notebook to understand how public interest in specific topics changes over time.
         The notebook performs exploratory data analysis and visualization to uncover:
         • Trends in search popularity over time
         • Comparisons between different search terms
@@ -708,7 +715,8 @@ const ProjectsSection = () => {
       tags: ["Pandas ", "Matplotlib "],
       image:
         "https://www.aimtechnologies.co/wp-content/uploads/2023/12/Media-Data-Analysis.jpeg",
-      github: "https://github.com/sachin07sachin/google-trends-data-visualization",
+      github:
+        "https://github.com/sachin07sachin/google-trends-data-visualization",
       demo: "",
     },
   ];
@@ -983,7 +991,7 @@ const ContactSection = () => {
           subject: formData.subject,
           message: formData.message,
         },
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
       )
       .then(
         () => {
@@ -1000,7 +1008,7 @@ const ContactSection = () => {
           // alert("Something went wrong. Please try again.");
           setStatus("error");
           setTimeout(() => setStatus(""), 5000);
-        }
+        },
       );
   };
 
@@ -1107,34 +1115,42 @@ const ContactSection = () => {
               Send Message
             </motion.button> */}
             <motion.button
-            type="submit"
-            className="form-submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            disabled={loading}
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </motion.button>
-          {/* --- NEW: Success/Error Message Display --- */}
-          {status === "success" && (
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              style={{ color: "#4ade80", marginTop: "1rem", fontWeight: "500" }}
+              type="submit"
+              className="form-submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              disabled={loading}
             >
-              ✅ Message sent successfully! I'll get back to you soon.
-            </motion.p>
-          )}
-          
-          {status === "error" && (
-            <motion.p 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              style={{ color: "#ef4444", marginTop: "1rem", fontWeight: "500" }}
-            >
-              ❌ Something went wrong. Please try again later.
-            </motion.p>
-          )}
+              {loading ? "Sending..." : "Send Message"}
+            </motion.button>
+            {/* --- NEW: Success/Error Message Display --- */}
+            {status === "success" && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                style={{
+                  color: "#4ade80",
+                  marginTop: "1rem",
+                  fontWeight: "500",
+                }}
+              >
+                ✅ Message sent successfully! I'll get back to you soon.
+              </motion.p>
+            )}
+
+            {status === "error" && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                style={{
+                  color: "#ef4444",
+                  marginTop: "1rem",
+                  fontWeight: "500",
+                }}
+              >
+                ❌ Something went wrong. Please try again later.
+              </motion.p>
+            )}
           </motion.form>
 
           <motion.div
