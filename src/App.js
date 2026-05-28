@@ -27,6 +27,7 @@ import {
   FaChild,
   FaUser,
   FaUserGraduate,
+  FaLaptopCode,
 } from "react-icons/fa";
 
 import {
@@ -42,6 +43,9 @@ import {
   SiScikitlearn,
   SiPlotly,
   SiFastapi,
+  SiTableau,
+  SiRedis,
+  SiSupabase,
 } from "react-icons/si";
 import "./App.css";
 
@@ -60,7 +64,7 @@ const App = () => {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ["home", "skills", "projects", "about", "contact"];
+      const sections = ["home", "skills", "education", "experience", "projects", "about", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -113,7 +117,7 @@ const App = () => {
     return () => ctx.revert();
   }, []);
 
-  const navItems = ["home", "skills", "projects", "about", "contact"];
+  const navItems = ["home", "skills", "education", "experience", "projects", "about", "contact"];
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -312,7 +316,7 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Full Stack Developer
+              Data Scientist & Software Engineer
             </motion.h2>
             <motion.p
               className="hero-description"
@@ -320,9 +324,10 @@ const App = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              I build reliable and scalable web applications, focusing on clean
-              code, performance, and real-world usability. I enjoy turning ideas
-              into practical products that people actually enjoy using.
+              I bridge the gap between complex data and scalable software. With
+              a foundation in engineering, I architect robust backends, build
+              predictive data models, and deploy interactive, high-performance
+              web applications.
             </motion.p>
             <motion.div
               className="hero-cta"
@@ -380,10 +385,14 @@ const App = () => {
       {/* Skills Section */}
       <SkillsSection />
 
+      {/* About Section */}
+      <EducationSection />
+
+      <ExperienceSection />
+
       {/* Projects Section */}
       <ProjectsSection />
 
-      {/* About Section */}
       <AboutSection />
 
       {/* Contact Section */}
@@ -538,36 +547,50 @@ const TechUniverse = () => {
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
+      {/* Data Science Orbit (NEW) */}
+      <FloatingIcon depth={1.8} initialX="35%" initialY="20%" color="#E70488">
+        <SiPandas />
+      </FloatingIcon>
+      <FloatingIcon depth={2.5} initialX="55%" initialY="75%" color="#4D77CF">
+        <SiNumpy />
+      </FloatingIcon>
+      <FloatingIcon depth={3.2} initialX="85%" initialY="85%" color="#F7931E">
+        <SiScikitlearn />
+      </FloatingIcon>
+      <FloatingIcon depth={1.4} initialX="10%" initialY="85%" color="#3F4F75">
+        <SiPlotly />
+      </FloatingIcon>
+
       {/* Backend Orbit */}
-      <FloatingIcon depth={1} initialX="20%" initialY="20%" color="#3776AB">
+      <FloatingIcon depth={1} initialX="20%" initialY="30%" color="#3776AB">
         <FaPython />
       </FloatingIcon>
       <FloatingIcon depth={1.2} initialX="70%" initialY="15%" color="#FFFFFF">
         <SiFlask />
       </FloatingIcon>
-      <FloatingIcon depth={1.5} initialX="80%" initialY="70%" color="#4169E1">
+      <FloatingIcon depth={1.5} initialX="75%" initialY="60%" color="#4169E1">
         <SiPostgresql />
       </FloatingIcon>
-      <FloatingIcon depth={0.8} initialX="15%" initialY="60%" color="#009688">
+      <FloatingIcon depth={0.8} initialX="15%" initialY="55%" color="#009688">
         <SiFastapi />
       </FloatingIcon>
 
       {/* Frontend Orbit */}
-      <FloatingIcon depth={2} initialX="65%" initialY="30%" color="#61DAFB">
+      <FloatingIcon depth={2} initialX="65%" initialY="35%" color="#61DAFB">
         <FaReact />
       </FloatingIcon>
-      <FloatingIcon depth={2.2} initialX="10%" initialY="40%" color="#06B6D4">
+      <FloatingIcon depth={2.2} initialX="5%" initialY="35%" color="#06B6D4">
         <SiTailwindcss />
       </FloatingIcon>
-      <FloatingIcon depth={2.5} initialX="40%" initialY="80%" color="#E34F26">
+      <FloatingIcon depth={2.5} initialX="40%" initialY="85%" color="#E34F26">
         <FaHtml5 />
       </FloatingIcon>
 
       {/* Tools & Core */}
-      <FloatingIcon depth={3.5} initialX="80%" initialY="40%" color="#FF9900">
+      <FloatingIcon depth={3.5} initialX="85%" initialY="40%" color="#FF9900">
         <FaAws />
       </FloatingIcon>
-      <FloatingIcon depth={3} initialX="25%" initialY="75%" color="#F05032">
+      <FloatingIcon depth={3} initialX="25%" initialY="80%" color="#F05032">
         <FaGitAlt />
       </FloatingIcon>
       <FloatingIcon depth={4} initialX="50%" initialY="10%" color="#F7DF1E">
@@ -602,6 +625,8 @@ const SkillsSection = () => {
     { name: "SQL", icon: <SiMysql />, color: "#4479A1" },
     { name: "SQLite", icon: <SiSqlite />, color: "#003B57" },
     { name: "PostgreSQL", icon: <SiPostgresql />, color: "#4169E1" },
+    { name: "Redis", icon: <SiRedis />, color: "#DC382D" },
+    { name: "Supabase", icon: <SiSupabase />, color: "#3ECF8E" },
 
     // Data / ML
     { name: "Pandas", icon: <SiPandas />, color: "#E70488" },
@@ -610,6 +635,7 @@ const SkillsSection = () => {
     { name: "Seaborn", icon: <SiPlotly />, color: "#4C72B0" },
     { name: "Plotly", icon: <SiPlotly />, color: "#3F4F75" },
     { name: "Scikit-learn", icon: <SiScikitlearn />, color: "#F7931E" },
+    { name: "Tableau", icon: <SiTableau />, color: "#E97627" },
 
     // Tools & Cloud
     { name: "Git", icon: <FaGitAlt />, color: "#F05032" },
@@ -673,9 +699,9 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: "BlogApp",
+      title: "Full-Stack Blog Platform (QuillOrbis)",
       description:
-        "A full-stack blog platform with user authentication, role-based admin access, rich-text post creation, and a commenting system. Includes secure login, database-driven content management, and responsive UI.",
+        "A fully deployed full-stack blog platform with user authentication, role-based admin access, and a rich-text post creation system. Built with Python and Flask, utilizing PostgreSQL for robust data management, and seamlessly deployed on Render.",
       tags: [
         "Python",
         "Flask",
@@ -683,15 +709,27 @@ const ProjectsSection = () => {
         "CSS",
         "JavaScript",
         "SQLAlchemy",
-        "SQLite",
+        "PostgreSQL",
         "Bootstrap",
       ],
       image: "https://www.thebubbletrends.com/images/blog.jpg",
       github: "https://github.com/sachin07sachin/BlogApp",
-      demo: "",
+      demo: "https://quillorbis.com/",
     },
+
     {
       id: 2,
+      title: "Open Source Contributor | Flask-Gravatar",
+      description: "Developed and submitted a comprehensive update to modernize the Flask-Gravatar extension (PR #35). Proposed architectural improvements for context detection, cleaned up property logic, and ensured compatibility with newer Python versions.",
+      tags: ["Python", "Flask", "Open Source", "Architecture"],
+      // This URL automatically generates a beautiful GitHub preview card for your specific PR
+      image: "https://opengraph.githubassets.com/1/zzzsochi/Flask-Gravatar/pull/35", 
+      github: "https://github.com/zzzsochi/Flask-Gravatar/pull/35",
+      demo: "",
+    },
+
+    {
+      id: 3,
       title: "LEGO Data Analysis",
       description: `This project analyzes LEGO-related data using a Jupyter Notebook to explore trends and patterns across different LEGO sets and themes.
         The notebook performs exploratory data analysis to understand: 
@@ -705,7 +743,7 @@ const ProjectsSection = () => {
       demo: "",
     },
     {
-      id: 3,
+      id: 4,
       title: "Google Trends Search Interest Analysis",
       description: `This project analyzes Google Trends search interest data using a Jupyter Notebook to understand how public interest in specific topics changes over time.
         The notebook performs exploratory data analysis and visualization to uncover:
@@ -719,6 +757,16 @@ const ProjectsSection = () => {
         "https://github.com/sachin07sachin/google-trends-data-visualization",
       demo: "",
     },
+
+    // {
+    //   id: 5,
+    //   title: "Interactive React Portfolio",
+    //   description: "Designed and developed this high-performance personal portfolio website. Features advanced Framer Motion animations, interactive GSAP components, and a fully responsive UI. Configured DNS through Porkbun and deployed via Netlify.",
+    //   tags: ["React.js", "Vite", "Framer Motion", "GSAP", "Netlify"],
+    //   image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800", // A clean, professional coding image
+    //   github: "https://github.com/sachin07sachin/portfolio", // Update this repo link if needed
+    //   demo: "", 
+    // },
   ];
 
   return (
@@ -812,8 +860,8 @@ const ProjectsSection = () => {
   );
 };
 
-// About Section Component
-const AboutSection = () => {
+// Education Section Component
+const EducationSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -846,28 +894,29 @@ const AboutSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStage((prev) => (prev + 1) % 3);
+      setStage((prev) => (prev + 1) % 4);
     }, 2500); // Cycles every 2.5 seconds
     return () => clearInterval(interval);
   }, []);
 
   // Configuration for the stages (Child -> Teen -> Grad)
   const stages = [
-    { icon: <FaChild size={100} />, label: "10th Grade" },
-    { icon: <FaUser size={110} />, label: "12th Grade" },
-    { icon: <FaUserGraduate size={120} />, label: "Bachelor's" },
+    { icon: <FaChild size={100} />, label: "" },
+    { icon: <FaUser size={110} />, label: "" },
+    { icon: <FaUserGraduate size={120} />, label: "" },
+    { icon: <FaLaptopCode size={130} />, label: "" },
   ];
 
   return (
-    <section id="about" className="about-section" ref={ref}>
+    <section id="education" className="about-section" ref={ref}>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="section-title" data-testid="about-title">
-            About Me
+          <h2 className="section-title" data-testid="education-title">
+          Education
           </h2>
           <p className="section-subtitle">My academic journey</p>
         </motion.div>
@@ -953,6 +1002,257 @@ const AboutSection = () => {
                 </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Experience Section Component
+const ExperienceSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const experiences = [
+    {
+      id: 1,
+      role: "Associate Data Scientist",
+      company: "Mar Symantech",
+      duration: "Dec 2025 - Present",
+      description: [
+        "Develop predictive regression models achieving 95% accuracy for sales forecasting and 36-month revenue projections.",
+        "Automate core KPI reporting using Tableau, eliminating 10+ hours of manual weekly work for cross-functional teams.",
+        "Perform exploratory data analysis to optimize marketing channels, driving a 15% increase in user retention and 8% revenue growth."
+      ],
+      techStack: [
+        "Python", 
+        "Pandas", 
+        "Scikit-Learn", 
+        "Tableau", 
+        "Regression Analysis", 
+        "EDA", 
+        "Predictive Modeling", 
+        "Data Visualization"
+      ]
+    },
+    {
+      id: 2,
+      role: "Associate Software Engineer",
+      company: "Claro Software Solutions",
+      duration: "Oct 2024 - Nov 2025",
+      description: [
+        "Architected scalable Python/Flask backend services and PostgreSQL databases, supporting rapid growth to 10,000+ users.",
+        "Built secure REST APIs aggregating unstructured data from 20+ sources, powering a core feature that drove 14% revenue growth.",
+        "Developed interactive React/Vite interfaces and administered A/B tests, increasing website conversion rates by 15%."
+      ],
+      techStack: [
+        "Python", 
+        "Flask", 
+        "React.js", 
+        "Vite", 
+        "JavaScript", 
+        "PostgreSQL", 
+        "REST APIs", 
+        "Data Pipelines", 
+        "A/B Testing"
+      ]
+    },
+  ];
+
+  return (
+    <section id="experience" className="about-section" ref={ref} style={{ backgroundColor: "transparent" }}>
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title" data-testid="experience-title">
+            Professional Experience
+          </h2>
+          <p className="section-subtitle">My career journey</p>
+        </motion.div>
+
+        <div className="experience-content" style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 0" }}>
+          <motion.div
+            className="timeline"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                className="timeline-item"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={{ x: 10 }}
+              >
+                <div className="timeline-dot" style={{ backgroundColor: "#64ffda" }}></div>
+                <div className="timeline-content" style={{ width: "100%", textAlign: "left" }}>
+                  <span className="timeline-year" style={{ color: "#64ffda", fontWeight: "bold" }}>{exp.duration}</span>
+                  <h3 className="timeline-title" style={{ fontSize: "1.5rem", marginBottom: "5px" }}>{exp.role}</h3>
+                  <p className="timeline-company" style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "15px" }}>{exp.company}</p>
+                  
+                  <ul style={{ paddingLeft: "20px", marginBottom: "15px", color: "var(--text-secondary)" }}>
+                    {exp.description.map((bullet, i) => (
+                      <li key={i} style={{ marginBottom: "8px", lineHeight: "1.6" }}>{bullet}</li>
+                    ))}
+                  </ul>
+
+                  <div className="project-tags" style={{ marginTop: "15px" }}>
+                    {exp.techStack.map((tech) => (
+                      <span key={tech} className="project-tag" style={{ border: "1px solid #64ffda", color: "#64ffda", background: "transparent" }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// About Section Component (Elevated Bento Box UI)
+const AboutSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Magical hover effect variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: 0.2 + i * 0.15,
+        ease: [0.21, 1.11, 0.81, 0.99],
+      },
+    }),
+    hover: {
+      y: -10,
+      scale: 1.02,
+      boxShadow: "0 20px 40px rgba(99, 102, 241, 0.2)",
+      borderColor: "rgba(100, 255, 218, 0.5)",
+      transition: { duration: 0.3 },
+    },
+  };
+
+  return (
+    <section id="about" className="about-section" ref={ref} style={{ position: "relative", overflow: "hidden" }}>
+      {/* Magical Background Glow */}
+      <div 
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          width: "60vw",
+          height: "60vw",
+          background: "radial-gradient(circle, rgba(99,102,241,0.05) 0%, rgba(0,0,0,0) 70%)",
+          zIndex: 0,
+          pointerEvents: "none"
+        }}
+      />
+
+      <div className="section-container" style={{ position: "relative", zIndex: 1 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          style={{ textAlign: "center", marginBottom: "3rem" }}
+        >
+          <h2 className="section-title" data-testid="about-title">
+            Beyond the Terminal
+          </h2>
+          <p className="section-subtitle">The architecture of my day-to-day</p>
+        </motion.div>
+
+        {/* Bento Box Grid */}
+        <div 
+          style={{ 
+            display: "grid", 
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
+            gap: "24px",
+            maxWidth: "1000px",
+            margin: "0 auto"
+          }}
+        >
+          {/* Card 1: The Engineer */}
+          <motion.div
+            custom={0}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            whileHover="hover"
+            style={{
+              background: "rgba(17, 25, 40, 0.7)",
+              backdropFilter: "blur(16px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              borderRadius: "20px",
+              padding: "2rem",
+              gridColumn: "1 / -1", // Spans full width on top
+            }}
+          >
+            <h3 style={{ color: "#64ffda", fontSize: "1.5rem", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              <FaLaptopCode /> The Architecture
+            </h3>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.1rem" }}>
+            My foundation in Electronics and Communication Engineering wired my brain to understand complex systems from the hardware up. Today, I apply that rigorous systems-thinking across the entire software stack. I operate at the exact intersection of software architecture and data science—building scalable Python backends, engineering fluid user interfaces with React, and training predictive regression models that drive concrete business decisions. Whether I am modernizing open-source Python frameworks or architecting end-to-end data pipelines, I build solutions that are robust, insightful, and built to scale.
+            </p>
+          </motion.div>
+
+          {/* Card 2: The Discipline */}
+          <motion.div
+            custom={1}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            whileHover="hover"
+            style={{
+              background: "rgba(17, 25, 40, 0.7)",
+              backdropFilter: "blur(16px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              borderRadius: "20px",
+              padding: "2rem",
+            }}
+          >
+            <h3 style={{ color: "#64ffda", fontSize: "1.3rem", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              ⚡ The Fuel
+            </h3>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem" }}>
+            Building high-quality software requires sustainable energy. To maintain my focus and creativity, I prioritize a healthy work-life balance through consistent daily workouts, high-quality sleep, and clean, mindful, nutrient-dense nutrition habits.
+            </p>
+          </motion.div>
+
+          {/* Card 3: The Unwind */}
+          <motion.div
+            custom={2}
+            variants={cardVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            whileHover="hover"
+            style={{
+              background: "rgba(17, 25, 40, 0.7)",
+              backdropFilter: "blur(16px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              borderRadius: "20px",
+              padding: "2rem",
+            }}
+          >
+            <h3 style={{ color: "#64ffda", fontSize: "1.3rem", marginBottom: "1rem", display: "flex", alignItems: "center", gap: "10px" }}>
+              🎮 The Disconnect
+            </h3>
+            <p style={{ color: "var(--text-secondary)", lineHeight: "1.8", fontSize: "1.05rem" }}>
+            I believe downtime should be both engaging and restorative. Outside of work, I enjoy playing video games to disconnect, diving into different resources to expand my knowledge and keep up with the latest industry advancements, and continually sharpening my communication and interpersonal skills.
+            </p>
           </motion.div>
         </div>
       </div>
