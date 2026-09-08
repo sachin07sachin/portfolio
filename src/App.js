@@ -64,7 +64,7 @@ const App = () => {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ["home", "skills", "education", "experience", "projects", "about", "contact"];
+      const sections = ["home", "skills", "education", "projects", "about", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -316,7 +316,7 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Data Scientist & Software Engineer
+              Software Engineer
             </motion.h2>
             <motion.p
               className="hero-description"
@@ -388,7 +388,7 @@ const App = () => {
       {/* About Section */}
       <EducationSection />
 
-      <ExperienceSection />
+      {/* <ExperienceSection /> */}
 
       {/* Projects Section */}
       <ProjectsSection />
@@ -1010,114 +1010,114 @@ const EducationSection = () => {
 };
 
 // Experience Section Component
-// const ExperienceSection = () => {
-//   const ref = useRef(null);
-//   const isInView = useInView(ref, { once: true, margin: "-100px" });
+const ExperienceSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-//   const experiences = [
-//     {
-//       id: 1,
-//       role: "Associate Data Scientist",
-//       company: "Mar Symantech",
-//       duration: "Dec 2025 - Present",
-//       description: [
-//         "Develop predictive regression models achieving 95% accuracy for sales forecasting and 36-month revenue projections.",
-//         "Automate core KPI reporting using Tableau, eliminating 10+ hours of manual weekly work for cross-functional teams.",
-//         "Perform exploratory data analysis to optimize marketing channels, driving a 15% increase in user retention and 8% revenue growth."
-//       ],
-//       techStack: [
-//         "Python", 
-//         "Pandas", 
-//         "Scikit-Learn", 
-//         "Tableau", 
-//         "Regression Analysis", 
-//         "EDA", 
-//         "Predictive Modeling", 
-//         "Data Visualization"
-//       ]
-//     },
-//     {
-//       id: 2,
-//       role: "Associate Software Engineer",
-//       company: "Claro Software Solutions",
-//       duration: "Oct 2024 - Nov 2025",
-//       description: [
-//         "Architected scalable Python/Flask backend services and PostgreSQL databases, supporting rapid growth to 10,000+ users.",
-//         "Built secure REST APIs aggregating unstructured data from 20+ sources, powering a core feature that drove 14% revenue growth.",
-//         "Developed interactive React/Vite interfaces and administered A/B tests, increasing website conversion rates by 15%."
-//       ],
-//       techStack: [
-//         "Python", 
-//         "Flask", 
-//         "React.js", 
-//         "Vite", 
-//         "JavaScript", 
-//         "PostgreSQL", 
-//         "REST APIs", 
-//         "Data Pipelines", 
-//         "A/B Testing"
-//       ]
-//     },
-//   ];
+  const experiences = [
+    {
+      id: 1,
+      role: "Associate Data Scientist",
+      company: "Mar Symantech",
+      duration: "Dec 2025 - Present",
+      description: [
+        "Develop predictive regression models achieving 95% accuracy for sales forecasting and 36-month revenue projections.",
+        "Automate core KPI reporting using Tableau, eliminating 10+ hours of manual weekly work for cross-functional teams.",
+        "Perform exploratory data analysis to optimize marketing channels, driving a 15% increase in user retention and 8% revenue growth."
+      ],
+      techStack: [
+        "Python", 
+        "Pandas", 
+        "Scikit-Learn", 
+        "Tableau", 
+        "Regression Analysis", 
+        "EDA", 
+        "Predictive Modeling", 
+        "Data Visualization"
+      ]
+    },
+    {
+      id: 2,
+      role: "Associate Software Engineer",
+      company: "Claro Software Solutions",
+      duration: "Oct 2024 - Nov 2025",
+      description: [
+        "Architected scalable Python/Flask backend services and PostgreSQL databases, supporting rapid growth to 10,000+ users.",
+        "Built secure REST APIs aggregating unstructured data from 20+ sources, powering a core feature that drove 14% revenue growth.",
+        "Developed interactive React/Vite interfaces and administered A/B tests, increasing website conversion rates by 15%."
+      ],
+      techStack: [
+        "Python", 
+        "Flask", 
+        "React.js", 
+        "Vite", 
+        "JavaScript", 
+        "PostgreSQL", 
+        "REST APIs", 
+        "Data Pipelines", 
+        "A/B Testing"
+      ]
+    },
+  ];
 
-//   return (
-//     <section id="experience" className="about-section" ref={ref} style={{ backgroundColor: "transparent" }}>
-//       <div className="section-container">
-//         <motion.div
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={isInView ? { opacity: 1, y: 0 } : {}}
-//           transition={{ duration: 0.6 }}
-//         >
-//           <h2 className="section-title" data-testid="experience-title">
-//             Professional Experience
-//           </h2>
-//           <p className="section-subtitle">My career journey</p>
-//         </motion.div>
+  return (
+    <section id="experience" className="about-section" ref={ref} style={{ backgroundColor: "transparent" }}>
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title" data-testid="experience-title">
+            Professional Experience
+          </h2>
+          <p className="section-subtitle">My career journey</p>
+        </motion.div>
 
-//         <div className="experience-content" style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 0" }}>
-//           <motion.div
-//             className="timeline"
-//             initial={{ opacity: 0, y: 50 }}
-//             animate={isInView ? { opacity: 1, y: 0 } : {}}
-//             transition={{ duration: 0.6, delay: 0.2 }}
-//           >
-//             {experiences.map((exp, index) => (
-//               <motion.div
-//                 key={exp.id}
-//                 className="timeline-item"
-//                 initial={{ opacity: 0, x: -20 }}
-//                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-//                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-//                 whileHover={{ x: 10 }}
-//               >
-//                 <div className="timeline-dot" style={{ backgroundColor: "#64ffda" }}></div>
-//                 <div className="timeline-content" style={{ width: "100%", textAlign: "left" }}>
-//                   <span className="timeline-year" style={{ color: "#64ffda", fontWeight: "bold" }}>{exp.duration}</span>
-//                   <h3 className="timeline-title" style={{ fontSize: "1.5rem", marginBottom: "5px" }}>{exp.role}</h3>
-//                   <p className="timeline-company" style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "15px" }}>{exp.company}</p>
+        <div className="experience-content" style={{ maxWidth: "800px", margin: "0 auto", padding: "40px 0" }}>
+          <motion.div
+            className="timeline"
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                className="timeline-item"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                whileHover={{ x: 10 }}
+              >
+                <div className="timeline-dot" style={{ backgroundColor: "#64ffda" }}></div>
+                <div className="timeline-content" style={{ width: "100%", textAlign: "left" }}>
+                  <span className="timeline-year" style={{ color: "#64ffda", fontWeight: "bold" }}>{exp.duration}</span>
+                  <h3 className="timeline-title" style={{ fontSize: "1.5rem", marginBottom: "5px" }}>{exp.role}</h3>
+                  <p className="timeline-company" style={{ fontSize: "1.1rem", opacity: 0.9, marginBottom: "15px" }}>{exp.company}</p>
                   
-//                   <ul style={{ paddingLeft: "20px", marginBottom: "15px", color: "var(--text-secondary)" }}>
-//                     {exp.description.map((bullet, i) => (
-//                       <li key={i} style={{ marginBottom: "8px", lineHeight: "1.6" }}>{bullet}</li>
-//                     ))}
-//                   </ul>
+                  <ul style={{ paddingLeft: "20px", marginBottom: "15px", color: "var(--text-secondary)" }}>
+                    {exp.description.map((bullet, i) => (
+                      <li key={i} style={{ marginBottom: "8px", lineHeight: "1.6" }}>{bullet}</li>
+                    ))}
+                  </ul>
 
-//                   <div className="project-tags" style={{ marginTop: "15px" }}>
-//                     {exp.techStack.map((tech) => (
-//                       <span key={tech} className="project-tag" style={{ border: "1px solid #64ffda", color: "#64ffda", background: "transparent" }}>
-//                         {tech}
-//                       </span>
-//                     ))}
-//                   </div>
-//                 </div>
-//               </motion.div>
-//             ))}
-//           </motion.div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+                  <div className="project-tags" style={{ marginTop: "15px" }}>
+                    {exp.techStack.map((tech) => (
+                      <span key={tech} className="project-tag" style={{ border: "1px solid #64ffda", color: "#64ffda", background: "transparent" }}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 // About Section Component (Elevated Bento Box UI)
 const AboutSection = () => {
