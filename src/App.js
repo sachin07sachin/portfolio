@@ -64,7 +64,7 @@ const App = () => {
       setScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ["home", "skills", "education", "projects", "about", "contact"];
+      const sections = ["home", "skills", "education", "experience", "projects", "about", "contact"];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -117,7 +117,7 @@ const App = () => {
     return () => ctx.revert();
   }, []);
 
-  const navItems = ["home", "skills", "education", "projects", "about", "contact"];
+  const navItems = ["home", "skills", "education", "experience", "projects", "about", "contact"];
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -316,7 +316,7 @@ const App = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Software Engineer
+              Data Scientist and Software Engineer
             </motion.h2>
             <motion.p
               className="hero-description"
@@ -349,7 +349,7 @@ const App = () => {
               </motion.button>
               <motion.button
                 className="cta-secondary"
-                onClick={() => window.open("/resume.pdf", "_blank")}
+                onClick={() => window.open("/SachinReddyShankuriResume.pdf", "_blank")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 data-testid="view-resume-btn"
@@ -388,7 +388,7 @@ const App = () => {
       {/* About Section */}
       <EducationSection />
 
-      {/* <ExperienceSection /> */}
+      <ExperienceSection />
 
       {/* Projects Section */}
       <ProjectsSection />
